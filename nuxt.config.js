@@ -52,7 +52,9 @@ module.exports = {
   ** Build configuration
   */
   css: ["~/assets/styles/main.scss"],
-  build: {},
+  build: {
+    extractCSS: true
+  },
   modules: ["@nuxtjs/axios", "~/modules/typescript.js", "bootstrap-vue/nuxt"],
   axios: {}
 };
