@@ -1,0 +1,14 @@
+/*
+ * Sans-Serif Latin : Lato, Montserrat, Roboto, Raleway
+ * Serif Latin           : Merriweather, EB Garamond, Rokkitt, Cormorant Garamond, IBM Plex Serif
+ */
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
+@import url(//cdn.rawgit.com/kattergil/NotoSerifKR-Web/76eb9ebf/stylesheet/NotoSerif-Web.css);
+@import url(//fonts.googleapis.com/css?family=Merriweather);
+$sans-serif: "Spoqa Han Sans", sans-serif;
+$serif: "Merriweather", "Noto Serif", serif;
+body {
+  font-family: $sans-serif;
+}
