@@ -33,7 +33,7 @@ module.exports = {
       {
         hid: "description",
         name: "description",
-        content: "Nuxt.js project"
+        content: "RanolP의 개인 페이지"
       }
     ],
     link: [
