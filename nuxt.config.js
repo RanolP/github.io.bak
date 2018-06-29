@@ -41,6 +41,12 @@ module.exports = {
         rel: "icon",
         type: "image/x-icon",
         href: "/favicon.ico"
+      },
+      {
+        rel: "stylesheet",
+        type: "text/css",
+        href:
+          "http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding-ligature/d2coding.css"
       }
     ]
   },
@@ -54,6 +60,9 @@ module.exports = {
   css: ["~/assets/styles/main.scss"],
   build: {
     extractCSS: true
+  },
+  generate: {
+    fallback: "404.html"
   },
   modules: ["@nuxtjs/axios", "~/modules/typescript.js", "bootstrap-vue/nuxt"],
   axios: {}

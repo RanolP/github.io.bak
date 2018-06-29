@@ -1,5 +1,5 @@
 <template>
-    <b-navbar toggleable="sm" type="dark" sticky="true">
+    <b-navbar toggleable="sm" type="dark" sticky>
         <b-navbar-brand href="#">
             <img src="" width="32" height="32" alt=""> RanolP Page
         </b-navbar-brand>
