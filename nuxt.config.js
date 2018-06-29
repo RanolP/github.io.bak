@@ -64,6 +64,45 @@ module.exports = {
   generate: {
     fallback: "404.html"
   },
-  modules: ["@nuxtjs/axios", "~/modules/typescript.js", "bootstrap-vue/nuxt"],
+  modules: [
+    "@nuxtjs/axios",
+    "@nuxtjs/markdownit",
+    "bootstrap-vue/nuxt",
+
+    "~/modules/typescript.js"
+  ],
+  middleware: [],
+  markdownit: {
+    html: false,
+    xhtmlOut: false,
+    preset: "default",
+    linkify: true,
+    typographer: true,
+    langPrefix: "language-",
+    use: [
+      "markdown-it-abbr",
+      [
+        "markdown-it-anchor",
+        {
+          permalink: true,
+          permalinkBefore: true
+        }
+      ],
+      "markdown-it-attrs",
+      ["markdown-it-container", "warning"],
+      "markdown-it-deflist",
+      "markdown-it-fontawesome",
+      "markdown-it-footnote",
+      "markdown-it-hashtag",
+      "markdown-it-katex",
+      "markdown-it-kbd",
+      "markdown-it-prism",
+      "markdown-it-smartarrows",
+      "markdown-it-sub",
+      "markdown-it-sup",
+      "markdown-it-toc",
+      "markdown-it-video"
+    ]
+  },
   axios: {}
 };
