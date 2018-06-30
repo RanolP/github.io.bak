@@ -6,3 +6,7 @@
 
 - npm
 - [nuxt-community/typescript-template](https://github.com/nuxt-community/typescript-template)
+
+# References
+
+- [davidroyer/nuxt-markdown-example](https://github.com/davidroyer/nuxt-markdown-example)

@@ -19,6 +19,7 @@
     "markdown-it-hashtag": "^0.4.0",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-kbd": "^1.1.1",
+    "markdown-it-mermaid": "^0.2.5",
     "markdown-it-prism": "^1.1.2",
     "markdown-it-smartarrows": "^1.0.1",
     "markdown-it-sub": "^1.0.0",

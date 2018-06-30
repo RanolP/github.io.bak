@@ -1,4 +1,8 @@
 const parseArgs = require("minimist");
+const fs = require("fs");
+const posts = fs
+  .readdirSync("./_posts")
+  .map(it => `blog/posts/${it.substr(0, it.lastIndexOf("."))}`);
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
     H: "hostname",
@@ -47,6 +51,11 @@ module.exports = {
         type: "text/css",
         href:
           "https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding-ligature/d2coding.css"
+      },
+      {
+        rel: "stylesheet",
+        type: "text/css",
+        href: "https://prismjs.com/themes/prism-tomorrow.css"
       }
     ]
   },
@@ -61,8 +70,12 @@ module.exports = {
   build: {
     extractCSS: true
   },
+  ignorePaths: [
+    "_posts/"
+  ],
   generate: {
-    fallback: "404.html"
+    subFolders: false,
+    routes: posts
   },
   modules: [
     "@nuxtjs/axios",
@@ -73,11 +86,12 @@ module.exports = {
     "~/modules/typescript.js"
   ],
   sitemap: {
-    path: '/sitemap.xml',
-    hostname: 'https://ranolp.github.io',
+    path: "/sitemap.xml",
+    hostname: "https://ranolp.github.io",
     cacheTime: 1000 * 60 * 15,
     gzip: true,
-    generate: true
+    generate: true,
+    routes: posts
   },
   middleware: [],
   markdownit: {
@@ -86,7 +100,6 @@ module.exports = {
     preset: "default",
     linkify: true,
     typographer: true,
-    langPrefix: "language-",
     use: [
       "markdown-it-abbr",
       [
@@ -104,6 +117,7 @@ module.exports = {
       "markdown-it-hashtag",
       "markdown-it-katex",
       "markdown-it-kbd",
+      // "markdown-it-mermaid",
       "markdown-it-prism",
       "markdown-it-smartarrows",
       "markdown-it-sub",
