@@ -1,7 +1,9 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-wrap">
     <my-nav />
-    <nuxt/>
+    <div class="container-fluid">
+      <nuxt/>
+    </div>
   </div>
 </template>
 

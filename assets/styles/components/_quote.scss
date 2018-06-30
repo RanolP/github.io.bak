@@ -1,0 +1,18 @@
+@import "../helpers/variables";
+
+blockquote {
+  margin: 0 4px;
+  margin-bottom: 1rem;
+  border-left: 4px $fieryorange solid;
+  padding: 2px 8px 0px 8px;
+  font-size: 1.25rem;
+}
+
+.quote-by::before {
+  content: "- ";
+}
+.quote-by {
+  font-size: 1rem;
+  color: #6c757d;
+  display: block;
+}

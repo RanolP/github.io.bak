@@ -1,0 +1,11 @@
+$background: #363b40;
+$background-lighten: #464b50;
+$foreground: #b8bfc6;
+$url-foreground: #78bdf6;
+$border: #dee2e6;
+$body-bg: $background;
+$body-color: $foreground;
+$link-color: $url-foreground;
+$hr-border-color: $border;
+$pre-color: $background;
+$code-color: darken($body-color, 25%);

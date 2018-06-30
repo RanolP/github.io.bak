@@ -1,5 +1,6 @@
 const parseArgs = require("minimist");
 const fs = require("fs");
+const cssPlugin = require("./markdown-it/css-plugin");
 const posts = fs
   .readdirSync("./_posts")
   .map(it => `blog/posts/${it.substr(0, it.lastIndexOf("."))}`);
@@ -70,9 +71,7 @@ module.exports = {
   build: {
     extractCSS: true
   },
-  ignorePaths: [
-    "_posts/"
-  ],
+  ignorePaths: ["_posts/"],
   generate: {
     subFolders: false,
     routes: posts
@@ -123,7 +122,8 @@ module.exports = {
       "markdown-it-sub",
       "markdown-it-sup",
       "markdown-it-toc",
-      "markdown-it-video"
+      "markdown-it-video",
+      cssPlugin
     ]
   },
   axios: {}
