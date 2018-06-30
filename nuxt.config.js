@@ -46,7 +46,7 @@ module.exports = {
         rel: "stylesheet",
         type: "text/css",
         href:
-          "http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding-ligature/d2coding.css"
+          "https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding-ligature/d2coding.css"
       }
     ]
   },
@@ -67,10 +67,18 @@ module.exports = {
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/markdownit",
+    "@nuxtjs/sitemap",
     "bootstrap-vue/nuxt",
 
     "~/modules/typescript.js"
   ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://ranolp.github.io',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: true
+  },
   middleware: [],
   markdownit: {
     html: false,
