@@ -4,6 +4,12 @@
     <div class="container-fluid">
       <nuxt/>
     </div>
+    <script>
+    mermaid.initialize({
+      theme: 'dark',
+      startOnLoad: true
+    });
+    </script>
   </div>
 </template>
 

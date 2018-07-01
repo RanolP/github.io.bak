@@ -1,4 +1,15 @@
 module.exports = function sub_plugin(md) {
+  md.mermaid.loadPreferences({
+    get: key => {
+      if (key === "mermaid-theme") {
+        return "dark";
+      } else if (key === "gantt-axis-format") {
+        return "%Y/%m/%d";
+      } else {
+        return undefined;
+      }
+    }
+  });
   const utils = require("markdown-it/lib/common/utils");
   const escapeHtml = utils.escapeHtml;
   md.renderer.rules.table_open = () => `<table class="table">`;

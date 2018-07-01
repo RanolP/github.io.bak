@@ -2,6 +2,7 @@ const parseArgs = require("minimist");
 const fs = require("fs");
 const hljs = require("highlight.js");
 const cssPlugin = require("./markdown-it/css-plugin");
+const mermaidPlugin = require("markdown-it-mermaid").default;
 const utils = require("markdown-it/lib/common/utils");
 const posts = fs
   .readdirSync("./_posts")
@@ -60,6 +61,24 @@ module.exports = {
         type: "text/css",
         href:
           "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/tomorrow-night-eighties.min.css"
+      },
+      {
+        rel: "stylesheet",
+        type: "text/css",
+        href: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"
+      }
+    ],
+    script: [
+      {
+        defer: true,
+        src: "https://use.fontawesome.com/releases/v5.1.0/js/all.js",
+        integrity:
+          "sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9",
+        crossorigin: "anonymous"
+      },
+      {
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.1.2/mermaid.min.js"
       }
     ]
   },
@@ -98,7 +117,7 @@ module.exports = {
   },
   middleware: [],
   markdownit: {
-    html: false,
+    html: true,
     xhtmlOut: false,
     preset: "default",
     linkify: true,
@@ -126,19 +145,35 @@ module.exports = {
         }
       ],
       "markdown-it-attrs",
-      ["markdown-it-container", "warning"],
+      "markdown-it-charts",
+      [
+        "markdown-it-container",
+        "bootstrap",
+        {
+          validate: () => true,
+          render: (tokens, idx) => {
+            const token = tokens[idx];
+
+            if (token.nesting === 1) {
+              return '<div class="alert alert-' + token.info.trim() + '">';
+            } else {
+              return "</div>";
+            }
+          }
+        }
+      ],
       "markdown-it-deflist",
       "markdown-it-fontawesome",
       "markdown-it-footnote",
       "markdown-it-hashtag",
       "markdown-it-katex",
       "markdown-it-kbd",
-      // "markdown-it-mermaid",
       "markdown-it-smartarrows",
       "markdown-it-sub",
       "markdown-it-sup",
       "markdown-it-toc",
       "markdown-it-video",
+      mermaidPlugin,
       cssPlugin
     ]
   },
