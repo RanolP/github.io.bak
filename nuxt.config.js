@@ -54,7 +54,7 @@ module.exports = {
         rel: "stylesheet",
         type: "text/css",
         href:
-          "https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding-ligature/d2coding.css"
+          "https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding-ligature/d2coding-ligature.css"
       },
       {
         rel: "stylesheet",
