@@ -10,4 +10,4 @@ npm-debug.log
 # Nuxt generate
 dist
 static/sitemap.xml
-static/sitemal.xml.gz
+static/sitemap.xml.gz
