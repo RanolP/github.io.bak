@@ -145,7 +145,6 @@ module.exports = {
         }
       ],
       "markdown-it-attrs",
-      "markdown-it-charts",
       [
         "markdown-it-container",
         "bootstrap",
