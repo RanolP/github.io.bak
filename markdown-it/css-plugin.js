@@ -1,10 +1,11 @@
 module.exports = function sub_plugin(md) {
-  const escapeHtml = require("markdown-it/lib/common/utils").escapeHtml;
+  const utils = require("markdown-it/lib/common/utils");
+  const escapeHtml = utils.escapeHtml;
   md.renderer.rules.table_open = () => `<table class="table">`;
   md.renderer.rules.code_block = (tokens, idx, options, env, slf) => {
     const token = tokens[idx];
 
-    return `<pre class="language-" ${slf.renderAttrs(token)}><code>${escapeHtml(
+    return `<pre class="hljs" ${slf.renderAttrs(token)}><code>${escapeHtml(
       token.content
     )}</code></pre>\n`;
   };

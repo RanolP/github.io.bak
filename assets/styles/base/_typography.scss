@@ -5,3 +5,8 @@
 $font-family-sans-serif: "Spoqa Han Sans", sans-serif;
 $font-family-serif: "Merriweather", "Noto Serif", serif;
 $font-family-monospace: "D2Coding ligature", "D2Coding", serif;
+
+.content code,
+.content pre {
+  font-family: $font-family-monospace !important;
+}

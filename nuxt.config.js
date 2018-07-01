@@ -1,6 +1,8 @@
 const parseArgs = require("minimist");
 const fs = require("fs");
+const hljs = require("highlight.js");
 const cssPlugin = require("./markdown-it/css-plugin");
+const utils = require("markdown-it/lib/common/utils");
 const posts = fs
   .readdirSync("./_posts")
   .map(it => `blog/posts/${it.substr(0, it.lastIndexOf("."))}`);
@@ -56,7 +58,8 @@ module.exports = {
       {
         rel: "stylesheet",
         type: "text/css",
-        href: "https://prismjs.com/themes/prism-tomorrow.css"
+        href:
+          "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/tomorrow-night-eighties.min.css"
       }
     ]
   },
@@ -74,7 +77,8 @@ module.exports = {
   ignorePaths: ["_posts/"],
   generate: {
     subFolders: false,
-    routes: posts
+    routes: posts,
+    fallback: "404.html"
   },
   modules: [
     "@nuxtjs/axios",
@@ -99,6 +103,19 @@ module.exports = {
     preset: "default",
     linkify: true,
     typographer: true,
+    highlight: (str, lang) => {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return `<pre class="hljs"><code>${
+            hljs.highlight(lang, str, true).value
+          }</code></pre>`;
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      return `<pre class="hljs"><code>${utils.escapeHtml(str)}</code></pre>`;
+    },
     use: [
       "markdown-it-abbr",
       [
@@ -117,7 +134,6 @@ module.exports = {
       "markdown-it-katex",
       "markdown-it-kbd",
       // "markdown-it-mermaid",
-      "markdown-it-prism",
       "markdown-it-smartarrows",
       "markdown-it-sub",
       "markdown-it-sup",
