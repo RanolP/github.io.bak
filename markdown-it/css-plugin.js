@@ -1,4 +1,4 @@
-module.exports = function sub_plugin(md) {
+module.exports = function(md) {
   md.mermaid.loadPreferences({
     get: key => {
       if (key === "mermaid-theme") {
@@ -10,6 +10,11 @@ module.exports = function sub_plugin(md) {
       }
     }
   });
+  const originalMathBlock = md.renderer.rules.math_block;
+  md.renderer.rules.math_block = (tokens, idx) => {
+    return `<div class="katex-wrap">${originalMathBlock(tokens, idx)}</div>`;
+  };
+  
   const utils = require("markdown-it/lib/common/utils");
   const escapeHtml = utils.escapeHtml;
   md.renderer.rules.table_open = () => `<table class="table">`;

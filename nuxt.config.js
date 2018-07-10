@@ -1,3 +1,4 @@
+const Vue = require("vue");
 const parseArgs = require("minimist");
 const fs = require("fs");
 const hljs = require("highlight.js");
@@ -28,7 +29,8 @@ const host =
   "localhost";
 module.exports = {
   env: {
-    baseUrl: process.env.BASE_URL || `http://${host}:${port}`
+    baseUrl: process.env.BASE_URL || `http://${host}:${port}`,
+    posts: posts
   },
   head: {
     title: "RanolP Page",
@@ -122,6 +124,7 @@ module.exports = {
     preset: "default",
     linkify: true,
     typographer: true,
+    quotes: '“”‘’',
     highlight: (str, lang) => {
       if (lang && hljs.getLanguage(lang)) {
         try {

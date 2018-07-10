@@ -1,3 +1,20 @@
 <template>
-  <h1 class="header">철학적인 것 같나요.</h1>
+  <div class="content mx-auto">
+    <h1 class="text-center"> 철학 </h1>
+    <div v-html="content"></div>
+  </div>
 </template>
+
+<script>
+export default {
+  async asyncData ({params}) {
+    const fileContent = await import(`~/_pages/philosophy.md`)
+    return {
+      content: fileContent
+    }
+  }
+}
+</script>
+
+<style>
+</style>

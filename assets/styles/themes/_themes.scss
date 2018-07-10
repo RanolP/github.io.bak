@@ -1,7 +1,9 @@
-$background: #363b40;
-$background-lighten: #464b50;
+@import "../helpers/variables";
+
+$background: $richdark;
+$background-lighten: lighten($richdark, 10%);
 $foreground: #b8bfc6;
-$url-foreground: #78bdf6;
+$url-foreground: $lightsky;
 $border: #dee2e6;
 $body-bg: $background;
 $body-color: $foreground;

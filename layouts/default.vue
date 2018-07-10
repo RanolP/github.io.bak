@@ -1,7 +1,7 @@
 <template>
   <div class="container-wrap">
     <my-nav />
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
       <nuxt/>
     </div>
     <script>

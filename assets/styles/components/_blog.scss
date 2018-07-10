@@ -1,6 +1,14 @@
 @import "../themes/themes";
+@import "node_modules/bootstrap/scss/bootstrap";
+
 .content {
   background-color: $background-lighten;
-  max-width: 768px;
   padding: 16px;
+  border-radius: 8px;
+}
+
+@include media-breakpoint-up(md) {
+  .content {
+    max-width: 768px;
+  }
 }
