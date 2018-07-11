@@ -14,7 +14,6 @@ export default Vue.extend({
   components: {  blogArticle },
   name: 'blog-article-list',
   data: () => {
-    console.log(this);
     return {
       posts: []
     }
