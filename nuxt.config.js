@@ -101,6 +101,7 @@ module.exports = {
     routes: posts,
     fallback: "404.html"
   },
+  plugins: ["~/plugin/blog.js"],
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/markdownit",
@@ -124,7 +125,7 @@ module.exports = {
     preset: "default",
     linkify: true,
     typographer: true,
-    quotes: '“”‘’',
+    quotes: "“”‘’",
     highlight: (str, lang) => {
       if (lang && hljs.getLanguage(lang)) {
         try {

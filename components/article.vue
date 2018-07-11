@@ -9,6 +9,7 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+  name: 'blog-article',
   props: {
     id: {
       required: true,
