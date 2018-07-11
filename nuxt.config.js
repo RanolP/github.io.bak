@@ -7,6 +7,7 @@ const mermaidPlugin = require("markdown-it-mermaid").default;
 const utils = require("markdown-it/lib/common/utils");
 const posts = fs
   .readdirSync("./_posts")
+  .filter(it => it.endsWith(".md"))
   .map(it => `blog/posts/${it.substr(0, it.lastIndexOf("."))}`);
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
@@ -110,6 +111,9 @@ module.exports = {
 
     "~/modules/typescript.js"
   ],
+  minify: {
+    decodeEntities: false
+  },
   sitemap: {
     path: "/sitemap.xml",
     hostname: "https://ranolp.github.io",
