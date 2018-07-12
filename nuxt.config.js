@@ -48,7 +48,7 @@ module.exports = {
       },
       {
         "http-equiv": "Content-Security-Policy",
-        content: "default-src https:"
+        content: "default-src 'self'; script-src cdnjs.cloudflare.com use.fontawesome.com"
       }
     ],
     link: [
@@ -85,7 +85,9 @@ module.exports = {
       },
       {
         src:
-          "https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.1.2/mermaid.min.js"
+          "https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.1.2/mermaid.min.js",
+        integrity: "sha256-h6Zf+lNrgm5IwY6R8dnVa4yd1y/wac6Iy2UUQ8wobx8=",
+        crossorigin: "anonymous"
       }
     ]
   },
