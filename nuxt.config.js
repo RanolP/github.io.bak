@@ -45,6 +45,10 @@ module.exports = {
         hid: "description",
         name: "description",
         content: "RanolP의 개인 페이지"
+      },
+      {
+        "http-equiv": "Content-Security-Policy",
+        content: "default-src https:"
       }
     ],
     link: [
