@@ -64,7 +64,11 @@ style-src
   'sha256-R0QVBq+IKxnV3v9z4hWM0d6gpMyy0XdWK9it1MFrIJM='
   'sha256-bviLPwiqrYk7TOtr5i2eb7I5exfGcGEvVuxmITyg//c='
   'sha256-t44LkGGM9VEoKZXwj/beeuoERB9yu5IXKHJFeElhOb4='
-  'sha256-uA8NnTehvCPI0L12IKIE+EbdoJkV3T5BGUEoHWtghq4=';
+  'sha256-uA8NnTehvCPI0L12IKIE+EbdoJkV3T5BGUEoHWtghq4='
+  'sha256-yCralQCVWd8Kge+LGUMXgcOAeA7r+WxF+bs5ENedViY='
+  'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE='
+  'sha256-9pyEYbPQ7JhrmSaD3yGNHg6/tnPDCEOULf1CRa8xouk='
+  'sha256-94GTxLnBtUyv2xrv+/sa64aW2XAMI5pWjloFugcWwCM=';
 font-src 'self' cdn.jsdelivr.net spoqa.github.io cdn.rawgit.com fonts.googleapis.com fonts.gstatic.com data: cdnjs.cloudflare.com;
 img-src 'self';
 `;
