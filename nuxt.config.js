@@ -35,7 +35,9 @@ script-src
   cdnjs.cloudflare.com
   use.fontawesome.com
   'sha256-/JmvdCgtofwGu9lknHM1s1gWhBWaHycObl7sRcIStHo='
-  'sha256-HwKHMu3z+w8SJVQC3c0A8gphcnYY8nt/2UgNkNLWlYM=';
+  'sha256-HwKHMu3z+w8SJVQC3c0A8gphcnYY8nt/2UgNkNLWlYM='
+  'sha256-9pyEYbPQ7JhrmSaD3yGNHg6/tnPDCEOULf1CRa8xouk='
+  'sha256-94GTxLnBtUyv2xrv+/sa64aW2XAMI5pWjloFugcWwCM=';
 style-src
   'self'
   cdnjs.cloudflare.com
