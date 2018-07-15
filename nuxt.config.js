@@ -28,6 +28,46 @@ const host =
   process.env.HOST ||
   process.env.npm_package_config_nuxt_host ||
   "localhost";
+const contentSecurityPolicy = `
+default-src 'self';
+script-src
+  'self'
+  cdnjs.cloudflare.com
+  use.fontawesome.com
+  'sha256-/JmvdCgtofwGu9lknHM1s1gWhBWaHycObl7sRcIStHo='
+  'sha256-HwKHMu3z+w8SJVQC3c0A8gphcnYY8nt/2UgNkNLWlYM=';
+style-src
+  'self'
+  cdnjs.cloudflare.com
+  cdn.jsdelivr.net
+  spoqa.github.io
+  cdn.rawgit.com
+  fonts.googleapis.com
+  'sha256-gsLTdR9I9DCfu3x6zxBCiAKA+crSTYQwEgnHxdX/A8E='
+  'sha256-LcEv7QI5CkYcx54yMlyUPvQLuYNJTNq4jSjStzCTJWE='
+  'sha256-a/0fTQAowiZhJ50lvP3KRHyc5rd2AR45zz5q7ccQYu0='
+  'sha256-1iHfDzc7jDcrYYZ74cczicaadO9oHgUikNQUK9EYyj4='
+  'sha256-Dn9OzJeAR9jyrIii6FrmqvMbzkx8AEOKgOID5fie3Go='
+  'sha256-Pl4uMqaBx8ZDXzYWPMuw37x1ZZpYIXWTokH3qaULml4='
+  'sha256-yF4e6LaddOsUmyEBqaEF5nPyp8VoVOVMLJl0MEWShwM='
+  'sha256-O13gELkORT9xyJ61rzUDVjuUQoPv1pZB060YHJ2Wq80='
+  'sha256-cyn71Ax2KxodvNlDU9djaUCmgjSCkmqjY84IMH7iCu0='
+  'sha256-xnqzyqSjp30/+PmDy04osZIIa3HazEgpGIqPLaqvqUI='
+  'sha256-0EZqoz+oBhx7gF4nvY2bSqoGyy4zLjNF+SDQXGp/ZrY='
+  'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='
+  'sha256-2RkHO9Rsz42EaW7aTpEamOHuEVtjl2JdcxdcFkXF3WA='
+  'sha256-Zs1JxUwj1zq9sx9pQ9MaUKNz1AUZkc3DTN4Ax+fLdLU='
+  'sha256-PVxr2n122U9ZqyAYSLkczS8C6DI6BvOW1k/CIeQkyT0='
+  'sha256-WP2WNCs0SZA+F+Q7bop3sAFZiPUng1+vcyx+mPqljtw='
+  'sha256-6yyfctO+faWUHgaLEFv+Ze7tS1ppowYFTkM46XAMKlU='
+  'sha256-2YHHy3MSW2khwKp2GovRw+0GLIEyYbKzZxbA3jg6fTw='
+  'sha256-R0QVBq+IKxnV3v9z4hWM0d6gpMyy0XdWK9it1MFrIJM='
+  'sha256-bviLPwiqrYk7TOtr5i2eb7I5exfGcGEvVuxmITyg//c='
+  'sha256-t44LkGGM9VEoKZXwj/beeuoERB9yu5IXKHJFeElhOb4='
+  'sha256-uA8NnTehvCPI0L12IKIE+EbdoJkV3T5BGUEoHWtghq4=';
+font-src 'self' cdn.jsdelivr.net spoqa.github.io cdn.rawgit.com fonts.googleapis.com fonts.gstatic.com data: cdnjs.cloudflare.com;
+img-src 'self';
+`;
 module.exports = {
   env: {
     baseUrl: process.env.BASE_URL || `http://${host}:${port}`,
@@ -36,7 +76,9 @@ module.exports = {
   head: {
     title: "RanolP Page",
     meta: [
-      { charset: "utf-8" },
+      {
+        charset: "utf-8"
+      },
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1"
@@ -48,7 +90,11 @@ module.exports = {
       },
       {
         "http-equiv": "Content-Security-Policy",
-        content: "default-src 'self'; script-src cdnjs.cloudflare.com use.fontawesome.com"
+        content: contentSecurityPolicy
+      },
+      {
+        "http-equiv": "Referrer-Policy",
+        content: "no-referrer, strict-origin-when-cross-origin"
       }
     ],
     link: [
@@ -61,18 +107,25 @@ module.exports = {
         rel: "stylesheet",
         type: "text/css",
         href:
-          "https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding-ligature/d2coding-ligature.css"
+          "https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding-ligature@1.3.2/d2coding-ligature.css",
+        integrity: "sha256-NFDjPJN2aVL8VM1cRcA1cUr0kn0PQ7o9du/irmixqLs=",
+        crossorigin: "anonymous"
       },
       {
         rel: "stylesheet",
         type: "text/css",
         href:
-          "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/tomorrow-night-eighties.min.css"
+          "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night-eighties.min.css",
+        integrity: "sha256-/CURZpogYLP3tOB+9145aSzwZ1wdyIh+smZn9LdzJb4=",
+        crossorigin: "anonymous"
       },
       {
         rel: "stylesheet",
         type: "text/css",
-        href: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"
+        href:
+          "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css",
+        integrity: "sha256-uXNHy6FK52Pb83SmU45mVAg7YECmr9Lwwu1zOz31j5c=",
+        crossorigin: "anonymous"
       }
     ],
     script: [
@@ -86,7 +139,7 @@ module.exports = {
       {
         src:
           "https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.1.2/mermaid.min.js",
-        integrity: "sha256-h6Zf+lNrgm5IwY6R8dnVa4yd1y/wac6Iy2UUQ8wobx8=",
+        integrity: "sha256-tJ52z0aAzZBamAZPedNylrtijTuTMLBabhv/A6eTA1w=",
         crossorigin: "anonymous"
       }
     ]
@@ -100,7 +153,9 @@ module.exports = {
   */
   css: ["~/assets/styles/main.scss"],
   build: {
-    extractCSS: true
+    extractCSS: {
+      allChunks: true
+    }
   },
   ignorePaths: ["_posts/"],
   generate: {
